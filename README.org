@@ -5,3 +5,7 @@ Adafruit RGB strip and three potentiometers for controlling the hue,
 saturation and value of the LEDs.
 
 This project is currently under development.
+
+* Dependencies
+
+ - ~platformio~ (For compiling and uploading to Arduino)
