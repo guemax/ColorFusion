@@ -27,6 +27,8 @@ ColorFusion---Illuminate your desk using an Arduino Nano Every, an
 Adafruit RGB strip and three potentiometers for controlling the hue,
 saturation and value of the LEDs.
 
+[[./res/collage.png]]
+
 * Dependencies
 
  - ~platformio~ (For compiling and uploading to Arduino)
