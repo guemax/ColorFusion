@@ -23,7 +23,7 @@
 #+TITLE: ColorFusion
 #+OPTIONS: toc:nil
 
-ColorFusion--Illuminate your desk using an Arduino Nano Every, an
+ColorFusion---Illuminate your desk using an Arduino Nano Every, an
 Adafruit RGB strip and three potentiometers for controlling the hue,
 saturation and value of the LEDs.
 
