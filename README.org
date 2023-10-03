@@ -40,3 +40,8 @@ saturation and value of the LEDs.
 pio run -t upload
 #+end_src
 
+* Similar projects
+
+[[https://github.com/guefra/ColorFusion][ColorFusion]] by guefra is a (very) similar project. Be sure to check it
+out as well!
+
