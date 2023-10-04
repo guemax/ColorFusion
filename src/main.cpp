@@ -40,62 +40,36 @@ void setup() {
 }
 
 void loop() {
-  uint16_t raw_hue = analogRead(A0);
-  uint16_t raw_sat = analogRead(A1);
-  uint16_t raw_val = analogRead(A2);
+  uint16_t hue = get_hue();
+  uint8_t saturation = get_saturation();
+  uint8_t value = get_value();
   
-  hue_buffer.push(raw_hue);
-  sat_buffer.push(raw_sat);
-  val_buffer.push(raw_val);
-
-  uint16_t hue = hue_buffer.mean() * 64.0616; // Between 0 and 65535.
-  uint8_t sat = sat_buffer.mean() * 0.249267; // Between 0 and 255.
-  uint8_t val = val_buffer.mean() * 0.249267; // Between 0 and 255.
-
-  strip.fill(strip.ColorHSV(hue, sat, val));
+  strip.fill(strip.ColorHSV(hue, saturation, value));
   strip.show();
   
   delay(10);
 }
 
 uint8_t get_hue() {
-  uint16_t raw_hue = analogRead(A0);
-  uint16_t raw_sat = analogRead(A1);
-  uint16_t raw_val = analogRead(A2);
-  
-  hue_buffer.push(raw_hue);
-  sat_buffer.push(raw_sat);
-  val_buffer.push(raw_val);
+  uint16_t raw = analogRead(A0);
+  hue_buffer.push(raw);
 
-  uint16_t hue = hue_buffer.mean() * 64.0616; // Between 0 and 65535.
-  uint8_t sat = sat_buffer.mean() * 0.249267; // Between 0 and 255.
-  uint8_t val = val_buffer.mean() * 0.249267; // Between 0 and 255.
+  // Between 0 and 65535.
+  return hue_buffer.mean() * 64.0616;
 }
 
 uint8_t get_value() {
-  uint16_t raw_hue = analogRead(A0);
-  uint16_t raw_sat = analogRead(A1);
-  uint16_t raw_val = analogRead(A2);
-  
-  hue_buffer.push(raw_hue);
-  sat_buffer.push(raw_sat);
-  val_buffer.push(raw_val);
+  uint16_t raw = analogRead(A1);
+  sat_buffer.push(raw);
 
-  uint16_t hue = hue_buffer.mean() * 64.0616; // Between 0 and 65535.
-  uint8_t sat = sat_buffer.mean() * 0.249267; // Between 0 and 255.
-  uint8_t val = val_buffer.mean() * 0.249267; // Between 0 and 255.
+  // Between 0 and 255.
+  return sat_buffer.mean() * 0.249267;
 }
 
 uint8_t get_saturation() {
-  uint16_t raw_hue = analogRead(A0);
-  uint16_t raw_sat = analogRead(A1);
-  uint16_t raw_val = analogRead(A2);
-  
-  hue_buffer.push(raw_hue);
-  sat_buffer.push(raw_sat);
-  val_buffer.push(raw_val);
+  uint16_t raw = analogRead(A2);
+  val_buffer.push(raw);
 
-  uint16_t hue = hue_buffer.mean() * 64.0616; // Between 0 and 65535.
-  uint8_t sat = sat_buffer.mean() * 0.249267; // Between 0 and 255.
-  uint8_t val = val_buffer.mean() * 0.249267; // Between 0 and 255.
+  // Between 0 and 255.
+  return val_buffer.mean() * 0.249267;
 }
