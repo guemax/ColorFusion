@@ -50,7 +50,7 @@ void loop() {
   delay(10);
 }
 
-uint8_t get_hue() {
+uint16_t get_hue() {
   uint16_t raw = analogRead(A0);
   hue_buffer.push(raw);
 
