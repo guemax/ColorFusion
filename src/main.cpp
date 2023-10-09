@@ -39,17 +39,6 @@ void setup() {
   strip.show();
 }
 
-void loop() {
-  uint16_t hue = get_hue();
-  uint8_t saturation = get_saturation();
-  uint8_t value = get_value();
-  
-  strip.fill(strip.ColorHSV(hue, saturation, value));
-  strip.show();
-  
-  delay(10);
-}
-
 uint16_t get_hue() {
   uint16_t raw = analogRead(A0);
   hue_buffer.push(raw);
@@ -72,4 +61,15 @@ uint8_t get_saturation() {
 
   // Between 0 and 255.
   return val_buffer.mean() * 0.249267;
+}
+
+void loop() {
+  uint16_t hue = get_hue();
+  uint8_t saturation = get_saturation();
+  uint8_t value = get_value();
+  
+  strip.fill(strip.ColorHSV(hue, saturation, value));
+  strip.show();
+  
+  delay(10);
 }

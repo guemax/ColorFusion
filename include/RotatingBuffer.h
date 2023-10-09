@@ -22,7 +22,7 @@ SOFTWARE.
 */
 
 #pragma once
-#define BUFFER_SIZE 30
+#define BUFFER_SIZE 50
 
 class RotatingBuffer {
 

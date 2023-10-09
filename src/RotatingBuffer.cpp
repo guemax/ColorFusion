@@ -41,7 +41,7 @@ void RotatingBuffer::push(uint16_t new_element) {
 }
   
 int RotatingBuffer::mean() {
-  int sum {};
+  uint32_t sum {};
   
   for (uint8_t i = 0; i < BUFFER_SIZE; i++) {
     sum += elements[i];
